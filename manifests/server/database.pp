@@ -14,6 +14,7 @@ define openldap::server::database (
   Optional[String[1]]                           $timelimit       = undef,
   Optional[String[1]]                           $updateref       = undef,
   Array[String[1]]                              $limits          = [],
+  Optional[String[1]]                           $organization    = undef,
   # BDB/HDB options
   Hash[String[1],Variant[String[1],Array[String[1]]]] $dboptions = {},
   Optional[String[1]]                           $synctype        = undef,
@@ -89,6 +90,7 @@ define openldap::server::database (
     syncusesubentry => $syncusesubentry,
     syncrepl        => $syncrepl,
     limits          => $limits,
+    organization    => $organization,
     security        => $security,
   }
 }
