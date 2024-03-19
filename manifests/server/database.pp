@@ -68,10 +68,10 @@ define openldap::server::database (
   }
 
   # Flatten syncrepl if passed as an Array
-  if $syncrepl =~ Array {
-    $_final_syncrepl = join($syncrepl, ' ')
+  if $syncrepl {
+    $_final_syncrepl = Array($syncrepl).join(' ')
   } else {
-    $_final_syncrepl = $syncrepl
+    $_final_syncrepl = undef
   }
 
   openldap_database { $title:
